@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Static App</title>
+    </head>
+
+    <body>
+        {% block content_block %}
+        <h1>New Blog</h1>
+        <form action="{% url 'create' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Create">
+        </form>
+        <p><a href="{% url 'index' %}">Back</a></p>
+        {% endblock %}
+    </body>
+
+</html>
